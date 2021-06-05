@@ -1,0 +1,57 @@
+{
+  "name": "e_commerce_serverless_api",
+  "version": "1.0.0",
+  "description": "Serverless offline API for an e-commerce app",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start-server": "serverless offline",
+    "test": "jest -i test",
+    "test-unit": "jest -i test/unit",
+    "test-e2e": "jest -i test/e2e"
+  },
+  "keywords": [
+    "serverless",
+    "typescript",
+    "typeorm",
+    "offline",
+    "sqlite"
+  ],
+  "author": "Lucas Ferreira",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.76",
+    "@types/jest": "^26.0.23",
+    "@types/jest-dev-server": "^4.2.0",
+    "@types/supertest": "^2.0.11",
+    "jest": "^27.0.3",
+    "jest-dev-server": "^5.0.3",
+    "serverless": "^2.43.1",
+    "serverless-offline": "^7.0.0",
+    "serverless-webpack": "^5.5.0",
+    "supertest": "^6.1.3",
+    "ts-jest": "^27.0.2",
+    "ts-loader": "^9.2.2",
+    "typescript": "^4.3.2",
+    "webpack": "^5.38.1"
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ],
+    "testEnvironment": "node"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.6"
+  }
+}
