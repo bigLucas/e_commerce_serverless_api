@@ -17,8 +17,30 @@
                 { "article_id": 1, "quantity": 1 },
                 { "article_id": 2, "quantity": 1 }
             ]
+        },
+		{
+            "id": 2,
+            "items": [
+                { "article_id": 2, "quantity": 1 }
+            ]
         }
-    ]
+	],
+	"delivery_fees": [
+		{
+			"eligible_transaction_volume": {
+				"min_price": 0,
+				"max_price": 6000
+			},
+			"price": 1000
+		},
+		{
+			"eligible_transaction_volume": {
+				"min_price": 6000,
+				"max_price": null
+			},
+			"price": 0
+		}
+	]
 }
 ```
 - Response body:
@@ -26,8 +48,12 @@
 {
     "carts": [
         {
-            "total": 30000, // sum of the prices of all items on the carts
+            "total": 30000, // sum of the prices of all items on the carts and shipping price
             "id": 1
+        },
+        {
+            "total": 6000, // sum of the prices of all items on the carts and shipping price
+            "id": 2
         }
     ]
 }

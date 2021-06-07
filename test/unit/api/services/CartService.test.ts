@@ -1,6 +1,6 @@
 import { CartResponseBuilder } from '../../../../src/api/builders/CartResponseBuilder';
 import { CartService } from '../../../../src/api/services/CartService';
-import { articlesMapMocked, cartsReq } from '../utils.mocks';
+import { articlesMapMocked, cartsReq, deliveryFeesReq } from '../utils.mocks';
 
 jest.mock('../../../../src/api/builders/CartResponseBuilder');
 
@@ -19,7 +19,7 @@ describe('CartService unit tests', () => {
             CartResponseBuilder.prototype.calculateTotal = jest.fn().mockReturnThis();
             CartResponseBuilder.prototype.build = jest.fn().mockImplementation(() => mockedBuilderReturn);
 
-            const service = new CartService({...articlesMapMocked});
+            const service = new CartService({...articlesMapMocked}, [...deliveryFeesReq]);
             const result = service.processAll([...cartsReq]);
             expect(result).toBeDefined();
             expect(result).toEqual(expect.arrayContaining([
@@ -34,7 +34,7 @@ describe('CartService unit tests', () => {
             const calculateTotalSpy = jest.spyOn(CartResponseBuilder.prototype, 'calculateTotal').mockReturnThis();
             const buildSpy = jest.spyOn(CartResponseBuilder.prototype, 'build').mockImplementation(() => mockedBuilderReturn);
 
-            const service = new CartService({...articlesMapMocked});
+            const service = new CartService({...articlesMapMocked}, [...deliveryFeesReq]);
             const result = service.processAll([]);
             expect(result).toBeDefined();
             expect(result).toEqual([]);
