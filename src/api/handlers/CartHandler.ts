@@ -19,7 +19,8 @@ class CartHandler extends ServerlessHandler<APIGatewayEvent, ProxyResult> {
                 .build();
         }
         const articlesMap = arrayToMap(requestBody.articles, 'id');
-        const cartService = new CartService(articlesMap, requestBody.delivery_fees);
+        const discountsMap = arrayToMap(requestBody.discounts, 'article_id');
+        const cartService = new CartService(articlesMap, requestBody.delivery_fees, discountsMap);
         const cartResponses = cartService.processAll(requestBody.carts);
         return new ProxyResultBuilder()
             .status(200)

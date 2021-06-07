@@ -1,6 +1,7 @@
 import { ArticleReq } from '../../../src/api/dtos/requests/ArticleReq';
 import { CartReq } from '../../../src/api/dtos/requests/CartReq';
 import { DeliveryFeeReq } from '../../../src/api/dtos/requests/DeliveryFeeReq';
+import { DiscountType } from '../../../src/api/dtos/requests/enums/DiscountType';
 
 export const articlesReq = [
     { id: 1, name: 'water', price: 100 },
@@ -14,6 +15,14 @@ export const articlesMapMocked = {
     2: { id: 2, name: 'honey', price: 200 },
     3: { id: 3, name: 'mango', price: 400 },
     4: { id: 4, name: 'tea', price: 1000 },
+};
+
+export const discountsMapMocked = {
+    2: { article_id: 2, type: DiscountType.AMOUNT, value: 25 },
+    5: { article_id: 5, type: DiscountType.PERCENTAGE, value: 30 },
+    6: { article_id: 6, type: DiscountType.PERCENTAGE, value: 30 },
+    7: { article_id: 7, type: DiscountType.PERCENTAGE, value: 25 },
+    8: { article_id: 8, type: DiscountType.PERCENTAGE, value: 10 }
 };
 
 export const cartsReq = [

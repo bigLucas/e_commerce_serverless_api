@@ -1,5 +1,5 @@
 import { CartResponseBuilder } from '../../../../src/api/builders/CartResponseBuilder';
-import { articlesMapMocked, cartsReq, deliveryFeesReq } from '../utils.mocks';
+import { articlesMapMocked, cartsReq, deliveryFeesReq, discountsMapMocked } from '../utils.mocks';
 
 describe('CartResponseBuilder unit tests', () => {
     describe('build: ', () => {
@@ -9,7 +9,8 @@ describe('CartResponseBuilder unit tests', () => {
             const builder = new CartResponseBuilder(
                 {...cartsReq[0]},
                 {...articlesMapMocked},
-                [...deliveryFeesReq]
+                [...deliveryFeesReq],
+                {...discountsMapMocked}
             );
             const result = builder.build();
             expect(result).toBeDefined();
@@ -24,7 +25,8 @@ describe('CartResponseBuilder unit tests', () => {
             const builder = new CartResponseBuilder(
                 {...cartsReq[0]},
                 {...articlesMapMocked},
-                [...deliveryFeesReq]
+                [...deliveryFeesReq],
+                {...discountsMapMocked}
             );
             const result = builder.calculateTotal();
             expect(result).toBeDefined();

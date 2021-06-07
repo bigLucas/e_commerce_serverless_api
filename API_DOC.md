@@ -40,7 +40,14 @@
 			},
 			"price": 0
 		}
-	]
+	],
+    "discounts": [
+        {
+            "article_id": 2,
+            "type": "amount",
+            "value": 1000
+        }
+    ]
 }
 ```
 - Response body:
@@ -48,11 +55,11 @@
 {
     "carts": [
         {
-            "total": 30000, // sum of the prices of all items on the carts and shipping price
+            "total": 29000, // sum the items price, apply discounts and apply shipping fee
             "id": 1
         },
         {
-            "total": 6000, // sum of the prices of all items on the carts and shipping price
+            "total": 5000,
             "id": 2
         }
     ]
