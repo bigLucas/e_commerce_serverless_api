@@ -37,7 +37,7 @@ npm test
 #### Running only unit or e2e tests:
 - This command runs only the unit tests cases.
 ```shell
-npm run test-e2e
+npm run test-unit
 ```
 - This command starts the server and runs end-to-end tests cases.
 ```shell
